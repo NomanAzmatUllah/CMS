@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+      <link href="~/Content/bootstrap.min.css" rel="stylesheet" /> 
+    <script src="~/Scripts/bootstrap.min.js"></script>
+  
+    <style>
+        body {
+            // background:url('../../images/pexels-photo-669996.jpeg');
+            padding: 0;
+            margin: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Raleway', sans-serif;
+            background-attachment: fixed;
+            background-position: center center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="@Url.Action("Adminplate","Login")" class="navbar-brand">TSC Admin Panel</a>
+            </div>
+            <div id="navbar-collapse" class="collapse navbar-collapse" data-animation="">
+
+                @{
+                    if (Session["User_id"].ToString() == "admin" || Session["User_id"].ToString() == "Manager")
+                    {
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Student
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","StudentDetails")">Student-Details</a></li>
+                                    <li><a href="@Url.Action("AddStudent","StudentDetails")">Add-Student</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fees
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fees")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fees")">Add-Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Faculty
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Admin")">Faculty-Details</a></li>
+                                    <li><a href="@Url.Action("Addfaculty","Admin")">Add-Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Staff
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Staff")">Staff-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Staff")">Add-Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Class
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","class")">Class-Details</a></li>
+                                    <li><a href="@Url.Action("Create","class")">Add-Class</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fee-Structure
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fee")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fee")">Add-Class Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Subject
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","subject")">Subject-Details</a></li>
+                                    <li><a href="@Url.Action("Create","subject")">Add-Subject</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Inventory
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Inventory")">Inventory-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Inventory")">Add-Inventory</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Library
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","library")">Books-Details</a></li>
+                                    <li><a href="@Url.Action("Create","library")">Add-Books</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Time Table
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","timetables")">TimeTable-Details</a></li>
+                                    <li><a href="@Url.Action("Create","timetables")">Add-Table</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        Staff Salary
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="@Url.Action("Index","Staf_salary")">staff Salary Details</a></li>
+                                        <li><a href="@Url.Action("Create","Staf_salary")">Geberate salary Slip </a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                    }
+                    else if (Session["User_id"].ToString() == "Reception")
+                    {
+
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Student
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","StudentDetails")">Student-Details</a></li>
+                                    <li><a href="@Url.Action("AddStudent","StudentDetails")">Add-Student</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fees
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fees")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fees")">Add-Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Faculty
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Admin")">Faculty-Details</a></li>
+                                    <li><a href="@Url.Action("Addfaculty","Admin")">Add-Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Staff
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Staff")">Staff-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Staff")">Add-Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Class
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","class")">Class-Details</a></li>
+                                    <li><a href="@Url.Action("Create","class")">Add-Class</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fee-Structure
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fee")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fee")">Add-Class Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Subject
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","subject")">Subject-Details</a></li>
+                                    <li><a href="@Url.Action("Create","subject")">Add-Subject</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Inventory
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Inventory")">Inventory-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Inventory")">Add-Inventory</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Library
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","library")">Books-Details</a></li>
+                                    <li><a href="@Url.Action("Create","library")">Add-Books</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Time Table
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","timetables")">TimeTable-Details</a></li>
+                                    <li><a href="@Url.Action("Create","timetables")">Add-Table</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+
+                    }
+
+                    else if (Session["User_id"].ToString() == "Manager")
+                    {
+                        <ul class="nav navbar-nav">
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Staff
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Staff")">Staff-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Staff")">Add-Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Class
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","class")">Class-Details</a></li>
+                                    <li><a href="@Url.Action("Create","class")">Add-Class</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fee-Structure
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fee")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fee")">Add-Class Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Subject
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","subject")">Subject-Details</a></li>
+                                    <li><a href="@Url.Action("Create","subject")">Add-Subject</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Inventory
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Inventory")">Inventory-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Inventory")">Add-Inventory</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Library
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","library")">Books-Details</a></li>
+                                    <li><a href="@Url.Action("Create","library")">Add-Books</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Time Table
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","timetables")">TimeTable-Details</a></li>
+                                    <li><a href="@Url.Action("Create","timetables")">Add-Table</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    }
+                    else if (Session["User_id"].ToString() == null)
+                    {
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Student
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","StudentDetails")">Student-Details</a></li>
+                                    <li><a href="@Url.Action("AddStudent","StudentDetails")">Add-Student</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fees
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fees")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fees")">Add-Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Faculty
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Admin")">Faculty-Details</a></li>
+                                    <li><a href="@Url.Action("Addfaculty","Admin")">Add-Faculty</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Staff
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Staff")">Staff-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Staff")">Add-Staff</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Class
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","class")">Class-Details</a></li>
+                                    <li><a href="@Url.Action("Create","class")">Add-Class</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Fee-Structure
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","fee")">Fee-Details</a></li>
+                                    <li><a href="@Url.Action("Create","fee")">Add-Class Fee</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Subject
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","subject")">Subject-Details</a></li>
+                                    <li><a href="@Url.Action("Create","subject")">Add-Subject</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Inventory
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","Inventory")">Inventory-Details</a></li>
+                                    <li><a href="@Url.Action("Create","Inventory")">Add-Inventory</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Library
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","library")">Books-Details</a></li>
+                                    <li><a href="@Url.Action("Create","library")">Add-Books</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    Time Table
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="@Url.Action("Index","timetables")">TimeTable-Details</a></li>
+                                    <li><a href="@Url.Action("Create","timetables")">Add-Table</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    }
+
+
+
+                }
+
+
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+    </div>
+    @RenderBody()
+
+</body>
+</html>
+
+<link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet" />
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>

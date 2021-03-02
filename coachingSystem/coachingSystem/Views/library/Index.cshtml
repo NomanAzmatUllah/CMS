@@ -1,0 +1,45 @@
+﻿@model IEnumerable<coachingSystem.Models.library>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+
+<h4 class="text-center">Book Details</h4>
+
+<table class="table table-responsive table-condensed">
+    <tr>
+        <th>
+            Book-Name
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            Status
+        </th>
+
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_category)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.book_status)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.book_id }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.book_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.book_id })*@
+        </td>
+    </tr>
+}
+
+</table>

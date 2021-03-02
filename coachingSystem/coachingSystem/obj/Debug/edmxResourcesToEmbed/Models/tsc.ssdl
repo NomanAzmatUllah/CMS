@@ -1,0 +1,603 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cmsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Attendance">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="currentDate" Type="datetime" />
+    <Property Name="stu_id" Type="int" />
+    <Property Name="Class_id" Type="int" />
+    <Property Name="AttendanceStatus" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="exam">
+    <Key>
+      <PropertyRef Name="exam_id" />
+    </Key>
+    <Property Name="exam_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class_id_fk" Type="int" />
+    <Property Name="st_fk_id" Type="int" />
+    <Property Name="suubject_fk_id" Type="int" />
+    <Property Name="total_marks" Type="int" />
+    <Property Name="obtained_marks" Type="int" />
+    <Property Name="current_datee" Type="datetime" />
+  </EntityType>
+  <EntityType Name="faculty_salary">
+    <Key>
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="Us_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrentDate" Type="datetime" />
+    <Property Name="currMonth" Type="nvarchar" MaxLength="50" />
+    <Property Name="monthly_salary" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bonus" Type="varchar" MaxLength="50" />
+    <Property Name="extra_Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Faculty_id" Type="int" />
+  </EntityType>
+  <EntityType Name="fee">
+    <Key>
+      <PropertyRef Name="fee_id" />
+    </Key>
+    <Property Name="fee_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="admission_fee_rs" Type="int" />
+    <Property Name="st_fk_id" Type="int" />
+    <Property Name="class_fk_id" Type="int" />
+    <Property Name="suubject_fk_id" Type="int" />
+    <Property Name="Fee_structure_id" Type="int" />
+  </EntityType>
+  <EntityType Name="Fee_structure">
+    <Key>
+      <PropertyRef Name="fee_structure_id" />
+    </Key>
+    <Property Name="fee_structure_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fee_structure_Amount" Type="int" />
+    <Property Name="class_fk_id" Type="int" />
+  </EntityType>
+  <EntityType Name="financial">
+    <Key>
+      <PropertyRef Name="financial_id" />
+    </Key>
+    <Property Name="financial_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pettycash" Type="nvarchar" MaxLength="100" />
+    <Property Name="net_profit" Type="int" />
+    <Property Name="loss" Type="int" />
+    <Property Name="fee_id" Type="int" />
+    <Property Name="salary_id" Type="int" />
+  </EntityType>
+  <EntityType Name="inventory">
+    <Key>
+      <PropertyRef Name="inventory_id" />
+    </Key>
+    <Property Name="inventory_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="items_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="items_quanitity" Type="int" />
+    <Property Name="items_price" Type="int" />
+  </EntityType>
+  <EntityType Name="library">
+    <Key>
+      <PropertyRef Name="book_id" />
+    </Key>
+    <Property Name="book_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="book_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="book_category" Type="nvarchar" MaxLength="100" />
+    <Property Name="book_status" Type="int" />
+  </EntityType>
+  <EntityType Name="maarkSheet">
+    <Key>
+      <PropertyRef Name="Mar_id" />
+    </Key>
+    <Property Name="Mar_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_one" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_subone" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_subone" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_two" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_two" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_two" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_three" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markobsub_three" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_three" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_four" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_four" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_four" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_five" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_five" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_five" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_six" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_six" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_six" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_seve" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_seve" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_seve" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_eight" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_eight" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_eight" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_nine" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_nine" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_nine" Type="nvarchar" MaxLength="50" />
+    <Property Name="sub_ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="Markob_sub_ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="totalMarks_sub_ten" Type="nvarchar" MaxLength="50" />
+    <Property Name="total" Type="nvarchar" MaxLength="50" />
+    <Property Name="percentage" Type="nvarchar" MaxLength="100" />
+    <Property Name="currentDate" Type="datetime" />
+    <Property Name="Stu_id" Type="int" />
+    <Property Name="Class_id" Type="int" />
+    <Property Name="Subject_id" Type="int" />
+  </EntityType>
+  <EntityType Name="salary">
+    <Key>
+      <PropertyRef Name="salary_id" />
+    </Key>
+    <Property Name="salary_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="faculty_staff" Type="int" />
+  </EntityType>
+  <EntityType Name="Staf_salary">
+    <Key>
+      <PropertyRef Name="Us_id" />
+    </Key>
+    <Property Name="Us_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CurrentDate" Type="datetime" />
+    <Property Name="currMonth" Type="nvarchar" MaxLength="50" />
+    <Property Name="monthly_salary" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bonus" Type="varchar" MaxLength="50" />
+    <Property Name="extra_Amount" Type="nvarchar" MaxLength="50" />
+    <Property Name="Staff_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_admin">
+    <Key>
+      <PropertyRef Name="ad_id" />
+    </Key>
+    <Property Name="ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ad_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="ad_Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="ad_password" Type="nvarchar" MaxLength="100" />
+    <Property Name="ad_designation" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_class">
+    <Key>
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="class_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class_name" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbl_faculty_details">
+    <Key>
+      <PropertyRef Name="faculty_Id" />
+    </Key>
+    <Property Name="faculty_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="facullty_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="father_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="cnic" Type="nvarchar" MaxLength="100" />
+    <Property Name="date_of_birth" Type="datetime" />
+    <Property Name="marital_status" Type="nvarchar" MaxLength="20" />
+    <Property Name="contact_no" Type="nvarchar" MaxLength="50" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="addresss" Type="nvarchar" MaxLength="100" />
+    <Property Name="qualification" Type="nvarchar" MaxLength="100" />
+    <Property Name="instituion" Type="nvarchar" MaxLength="100" />
+    <Property Name="experience" Type="nvarchar" MaxLength="100" />
+    <Property Name="descriptionn" Type="nvarchar" MaxLength="100" />
+    <Property Name="skill_activities" Type="nvarchar" MaxLength="100" />
+    <Property Name="faculty_image" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_staff">
+    <Key>
+      <PropertyRef Name="staff_id" />
+    </Key>
+    <Property Name="staff_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="staff_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="staff_contact" Type="nvarchar" MaxLength="100" />
+    <Property Name="staff_cnic" Type="nvarchar" MaxLength="100" />
+    <Property Name="staff_address" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tbl_student">
+    <Key>
+      <PropertyRef Name="stu_id" />
+    </Key>
+    <Property Name="stu_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="applicant_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="father_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="father_occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="home_address" Type="nvarchar" MaxLength="100" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" />
+    <Property Name="father_student_Cnic" Type="nvarchar" MaxLength="100" />
+    <Property Name="cell" Type="nvarchar" MaxLength="100" />
+    <Property Name="name_of_college" Type="nvarchar" MaxLength="100" />
+    <Property Name="stu_image" Type="nvarchar(max)" />
+    <Property Name="groupp" Type="nvarchar" MaxLength="100" />
+    <Property Name="date_of_admission" Type="datetime" />
+    <Property Name="date_of_payment" Type="datetime" />
+    <Property Name="class_fk_id" Type="int" />
+    <Property Name="suubject_fk_id" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_subject">
+    <Key>
+      <PropertyRef Name="sub_id" />
+    </Key>
+    <Property Name="sub_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sub_name" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="timetable">
+    <Key>
+      <PropertyRef Name="timetable_id" />
+    </Key>
+    <Property Name="timetable_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="class_id_fk" Type="int" />
+    <Property Name="faculty_id_fk" Type="int" />
+    <Property Name="suubject_fk_id" Type="int" />
+    <Property Name="date_time" Type="datetime" />
+    <Property Name="dayss" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__Attendanc__Class__70DDC3D8">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="Class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Attendanc__stu_i__6FE99F9F">
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="0..1" />
+    <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_student">
+        <PropertyRef Name="stu_id" />
+      </Principal>
+      <Dependent Role="Attendance">
+        <PropertyRef Name="stu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__exam__class_id_f__267ABA7A">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="exam" Type="Self.exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="exam">
+        <PropertyRef Name="class_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__exam__st_fk_id__276EDEB3">
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="0..1" />
+    <End Role="exam" Type="Self.exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_student">
+        <PropertyRef Name="stu_id" />
+      </Principal>
+      <Dependent Role="exam">
+        <PropertyRef Name="st_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__exam__suubject_f__286302EC">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="0..1" />
+    <End Role="exam" Type="Self.exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="exam">
+        <PropertyRef Name="suubject_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__faculty_s__Facul__5CD6CB2B">
+    <End Role="tbl_faculty_details" Type="Self.tbl_faculty_details" Multiplicity="0..1" />
+    <End Role="faculty_salary" Type="Self.faculty_salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_faculty_details">
+        <PropertyRef Name="faculty_Id" />
+      </Principal>
+      <Dependent Role="faculty_salary">
+        <PropertyRef Name="Faculty_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fee__class_fk_id__1DE57479">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="fee" Type="Self.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="class_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fee__Fee_structu__1FCDBCEB">
+    <End Role="Fee_structure" Type="Self.Fee_structure" Multiplicity="0..1" />
+    <End Role="fee" Type="Self.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Fee_structure">
+        <PropertyRef Name="fee_structure_id" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="Fee_structure_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fee__st_fk_id__1CF15040">
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="0..1" />
+    <End Role="fee" Type="Self.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_student">
+        <PropertyRef Name="stu_id" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="st_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__fee__suubject_fk__1ED998B2">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="0..1" />
+    <End Role="fee" Type="Self.fee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="fee">
+        <PropertyRef Name="suubject_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Fee_struc__class__164452B1">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="Fee_structure" Type="Self.Fee_structure" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="Fee_structure">
+        <PropertyRef Name="class_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__financial__fee_i__2D27B809">
+    <End Role="fee" Type="Self.fee" Multiplicity="0..1" />
+    <End Role="financial" Type="Self.financial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fee">
+        <PropertyRef Name="fee_id" />
+      </Principal>
+      <Dependent Role="financial">
+        <PropertyRef Name="fee_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__financial__salar__2E1BDC42">
+    <End Role="fee" Type="Self.fee" Multiplicity="0..1" />
+    <End Role="financial" Type="Self.financial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="fee">
+        <PropertyRef Name="fee_id" />
+      </Principal>
+      <Dependent Role="financial">
+        <PropertyRef Name="salary_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__maarkShee__Class__6383C8BA">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="maarkSheet" Type="Self.maarkSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="maarkSheet">
+        <PropertyRef Name="Class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__maarkShee__Stu_i__628FA481">
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="0..1" />
+    <End Role="maarkSheet" Type="Self.maarkSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_student">
+        <PropertyRef Name="stu_id" />
+      </Principal>
+      <Dependent Role="maarkSheet">
+        <PropertyRef Name="Stu_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Staf_sala__Staff__5FB337D6">
+    <End Role="tbl_staff" Type="Self.tbl_staff" Multiplicity="0..1" />
+    <End Role="Staf_salary" Type="Self.Staf_salary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_staff">
+        <PropertyRef Name="staff_id" />
+      </Principal>
+      <Dependent Role="Staf_salary">
+        <PropertyRef Name="Staff_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_stude__class__1920BF5C">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="class_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbl_stude__suubj__1A14E395">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="0..1" />
+    <End Role="tbl_student" Type="Self.tbl_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="tbl_student">
+        <PropertyRef Name="suubject_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timetable__class__34C8D9D1">
+    <End Role="tbl_class" Type="Self.tbl_class" Multiplicity="0..1" />
+    <End Role="timetable" Type="Self.timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_class">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="timetable">
+        <PropertyRef Name="class_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timetable__facul__35BCFE0A">
+    <End Role="tbl_faculty_details" Type="Self.tbl_faculty_details" Multiplicity="0..1" />
+    <End Role="timetable" Type="Self.timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_faculty_details">
+        <PropertyRef Name="faculty_Id" />
+      </Principal>
+      <Dependent Role="timetable">
+        <PropertyRef Name="faculty_id_fk" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__timetable__suubj__36B12243">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="0..1" />
+    <End Role="timetable" Type="Self.timetable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="timetable">
+        <PropertyRef Name="suubject_fk_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Subject_id">
+    <End Role="tbl_subject" Type="Self.tbl_subject" Multiplicity="0..1" />
+    <End Role="maarkSheet" Type="Self.maarkSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_subject">
+        <PropertyRef Name="sub_id" />
+      </Principal>
+      <Dependent Role="maarkSheet">
+        <PropertyRef Name="Subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="cmsModelStoreContainer">
+    <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="exam" EntityType="Self.exam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="faculty_salary" EntityType="Self.faculty_salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="fee" EntityType="Self.fee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Fee_structure" EntityType="Self.Fee_structure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="financial" EntityType="Self.financial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="inventory" EntityType="Self.inventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="library" EntityType="Self.library" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="maarkSheet" EntityType="Self.maarkSheet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="salary" EntityType="Self.salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Staf_salary" EntityType="Self.Staf_salary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_admin" EntityType="Self.tbl_admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_class" EntityType="Self.tbl_class" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_faculty_details" EntityType="Self.tbl_faculty_details" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_staff" EntityType="Self.tbl_staff" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_student" EntityType="Self.tbl_student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_subject" EntityType="Self.tbl_subject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="timetable" EntityType="Self.timetable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Attendanc__Class__70DDC3D8" Association="Self.FK__Attendanc__Class__70DDC3D8">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Attendanc__stu_i__6FE99F9F" Association="Self.FK__Attendanc__stu_i__6FE99F9F">
+      <End Role="tbl_student" EntitySet="tbl_student" />
+      <End Role="Attendance" EntitySet="Attendance" />
+    </AssociationSet>
+    <AssociationSet Name="FK__exam__class_id_f__267ABA7A" Association="Self.FK__exam__class_id_f__267ABA7A">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="exam" EntitySet="exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__exam__st_fk_id__276EDEB3" Association="Self.FK__exam__st_fk_id__276EDEB3">
+      <End Role="tbl_student" EntitySet="tbl_student" />
+      <End Role="exam" EntitySet="exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__exam__suubject_f__286302EC" Association="Self.FK__exam__suubject_f__286302EC">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="exam" EntitySet="exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK__faculty_s__Facul__5CD6CB2B" Association="Self.FK__faculty_s__Facul__5CD6CB2B">
+      <End Role="tbl_faculty_details" EntitySet="tbl_faculty_details" />
+      <End Role="faculty_salary" EntitySet="faculty_salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fee__class_fk_id__1DE57479" Association="Self.FK__fee__class_fk_id__1DE57479">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fee__Fee_structu__1FCDBCEB" Association="Self.FK__fee__Fee_structu__1FCDBCEB">
+      <End Role="Fee_structure" EntitySet="Fee_structure" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fee__st_fk_id__1CF15040" Association="Self.FK__fee__st_fk_id__1CF15040">
+      <End Role="tbl_student" EntitySet="tbl_student" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__fee__suubject_fk__1ED998B2" Association="Self.FK__fee__suubject_fk__1ED998B2">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="fee" EntitySet="fee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Fee_struc__class__164452B1" Association="Self.FK__Fee_struc__class__164452B1">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="Fee_structure" EntitySet="Fee_structure" />
+    </AssociationSet>
+    <AssociationSet Name="FK__financial__fee_i__2D27B809" Association="Self.FK__financial__fee_i__2D27B809">
+      <End Role="fee" EntitySet="fee" />
+      <End Role="financial" EntitySet="financial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__financial__salar__2E1BDC42" Association="Self.FK__financial__salar__2E1BDC42">
+      <End Role="fee" EntitySet="fee" />
+      <End Role="financial" EntitySet="financial" />
+    </AssociationSet>
+    <AssociationSet Name="FK__maarkShee__Class__6383C8BA" Association="Self.FK__maarkShee__Class__6383C8BA">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="maarkSheet" EntitySet="maarkSheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__maarkShee__Stu_i__628FA481" Association="Self.FK__maarkShee__Stu_i__628FA481">
+      <End Role="tbl_student" EntitySet="tbl_student" />
+      <End Role="maarkSheet" EntitySet="maarkSheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Staf_sala__Staff__5FB337D6" Association="Self.FK__Staf_sala__Staff__5FB337D6">
+      <End Role="tbl_staff" EntitySet="tbl_staff" />
+      <End Role="Staf_salary" EntitySet="Staf_salary" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_stude__class__1920BF5C" Association="Self.FK__tbl_stude__class__1920BF5C">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbl_stude__suubj__1A14E395" Association="Self.FK__tbl_stude__suubj__1A14E395">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="tbl_student" EntitySet="tbl_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timetable__class__34C8D9D1" Association="Self.FK__timetable__class__34C8D9D1">
+      <End Role="tbl_class" EntitySet="tbl_class" />
+      <End Role="timetable" EntitySet="timetable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timetable__facul__35BCFE0A" Association="Self.FK__timetable__facul__35BCFE0A">
+      <End Role="tbl_faculty_details" EntitySet="tbl_faculty_details" />
+      <End Role="timetable" EntitySet="timetable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__timetable__suubj__36B12243" Association="Self.FK__timetable__suubj__36B12243">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="timetable" EntitySet="timetable" />
+    </AssociationSet>
+    <AssociationSet Name="Subject_id" Association="Self.Subject_id">
+      <End Role="tbl_subject" EntitySet="tbl_subject" />
+      <End Role="maarkSheet" EntitySet="maarkSheet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

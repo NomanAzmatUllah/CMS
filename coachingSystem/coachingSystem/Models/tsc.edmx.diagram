@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d3a5c9ef85944de9b5796f70db88afca" Name="Diagram1">
+        <EntityTypeShape EntityType="cmsModel.exam" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.fee" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.Fee_structure" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.financial" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.inventory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.library" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.salary" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_admin" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_class" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_faculty_details" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_staff" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_student" Width="1.5" PointX="6" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.tbl_subject" Width="1.5" PointX="0.75" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="cmsModel.timetable" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="cmsModel.FK__exam__class_id_f__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__exam__st_fk_id__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__exam__suubject_f__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__fee__class_fk_id__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__fee__Fee_structu__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__fee__st_fk_id__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__fee__suubject_fk__1ED998B2" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__financial__fee_i__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__financial__salar__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__Fee_struc__class__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__tbl_stude__class__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__timetable__class__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__timetable__facul__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__tbl_stude__suubj__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="cmsModel.FK__timetable__suubj__36B12243" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="cmsModel.faculty_salary" Width="1.5" PointX="3" PointY="13.5" />
+        <EntityTypeShape EntityType="cmsModel.Staf_salary" Width="1.5" PointX="9" PointY="5.125" />
+        <AssociationConnector Association="cmsModel.FK__faculty_s__Facul__5CD6CB2B" />
+        <AssociationConnector Association="cmsModel.FK__Staf_sala__Staff__5FB337D6" />
+        <EntityTypeShape EntityType="cmsModel.maarkSheet" Width="1.5" PointX="10.25" PointY="9" />
+        <AssociationConnector Association="cmsModel.FK__maarkShee__Class__6383C8BA" />
+        <AssociationConnector Association="cmsModel.FK__maarkShee__Stu_i__628FA481" />
+        <AssociationConnector Association="cmsModel.Subject_id" />
+        <EntityTypeShape EntityType="cmsModel.Attendance" Width="1.5" PointX="11.25" PointY="5.125" />
+        <AssociationConnector Association="cmsModel.FK__Attendanc__Class__70DDC3D8" />
+        <AssociationConnector Association="cmsModel.FK__Attendanc__stu_i__6FE99F9F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

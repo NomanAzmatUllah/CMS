@@ -1,0 +1,121 @@
+﻿@model coachingSystem.Models.tbl_student
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+
+<table class="table table-responsive">
+
+    <tr>
+        <td>Name</td>
+        <td>@Html.DisplayFor(model => model.applicant_name)</td>
+    </tr>
+    <tr>
+        <td>Fahther Name</td>
+        <td>@Html.DisplayFor(model => model.father_name)</td>
+    </tr>
+
+    <tr>
+        <td>Father Occupation</td>
+        <td>@Html.DisplayFor(model => model.father_occupation)</td>
+    </tr>
+
+    <tr>
+        <td>Address</td>
+        <td>@Html.DisplayFor(model => model.home_address)</td>
+    </tr>
+
+    <tr>
+        <td>Email</td>
+        <td>@Html.DisplayFor(model => model.email)</td>
+    </tr>
+
+    <tr>
+        <td>Identity</td>
+        <td>@Html.DisplayFor(model => model.father_student_Cnic)</td>
+    </tr>
+
+    <tr>
+        <td>Cell</td>
+        <td>@Html.DisplayFor(model => model.cell)</td>
+    </tr>
+
+    <tr>
+        <td>College</td>
+        <td>@Html.DisplayFor(model => model.name_of_college)</td>
+    </tr>
+    <tr>
+        <td>Group</td>
+        <td>@Html.DisplayFor(model => model.groupp)</td>
+    </tr>
+
+    <tr>
+        <td>Addmission</td>
+        <td>@Html.DisplayFor(model => model.date_of_admission)</td>
+    </tr>
+    <tr>
+        <td>Date Of Payment</td>
+        <td>@Html.DisplayFor(model => model.date_of_payment)</td>
+    </tr>
+  
+      <tr>
+          <td>Class Name</td>
+          <td>@Html.DisplayFor(model => model.tbl_class.class_name)</td>
+    </tr>
+
+    <tr>
+        <td>Subject</td>
+        <td>@Html.DisplayFor(model => model.tbl_subject.sub_name)</td>
+    </tr>
+    <tr>
+        <td>Image</td>
+        <td> <img src="@Url.Content(Model.stu_image)"  height="130px;"/> </td>
+    </tr>
+</table>
+
+<script>
+
+    function printContent(el) {
+        debugger;
+        var restorepage = document.body.innerHTML;
+        var printcontent =  document.getElementById(el).innerHTML ;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+        var clicks = 0;
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+
+
+
+
+    }
+</script>
+
+
+<style>
+    .box {
+        width: 500px;
+        // border: 1px solid black;
+        position: relative;
+    }
+
+    .boxes {
+        width: 400px;
+        // border: 1px solid black;
+        position: relative;
+    }
+
+    .box1 {
+        width: 625px;
+        border: 1px solid black;
+    }
+
+    .weight {
+        font-weight: bold;
+        font-size: 30px;
+    }
+</style>
+

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<coachingSystem.Models.fee>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Fee Details</h2>
+
+<table id="myTable" class="table table-responsive">
+    <thead>
+        <tr>
+            <th>
+                Addmission Fees
+            </th>
+            <th>
+                Class Name
+            </th>
+
+            <th>
+                Student Name
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+@foreach (var item in Model)
+{
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.admission_fee_rs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_class.class_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_student.applicant_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.fee_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.fee_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.fee_id })
+            </td>
+        </tr>
+    </tbody>
+}
+
+</table>
+
+
+<script>
+
+         $(document).ready(function () {
+
+             $("#myTable").DataTable();
+
+         });
+
+</script>

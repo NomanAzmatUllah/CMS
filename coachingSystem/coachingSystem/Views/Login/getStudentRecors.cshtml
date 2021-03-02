@@ -1,0 +1,182 @@
+﻿@model coachingSystem.Models.Attendance
+
+@{
+    ViewBag.Title = "getStudentRecors";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<html>
+<head>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+
+
+    <h2 style="text-align:center;">Mark Attendance</h2>
+
+
+
+    @using (Html.BeginForm("GetAbsentRecords", "Login"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4 class="text-center">Mark</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group  col-md-12">
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.currentDate, "{dd-MM-yyyy}", new { @class = "form-control"  })
+                    @Html.ValidationMessageFor(model => model.currentDate, "", new { @class = "text-danger" })
+                </div>
+                <div class="col-md-2">
+                    <input type="submit" class="btn btn-default" value="Find Attendance" style="margin-top: -6px;" />
+                </div>
+            </div>
+        </div>
+
+    }
+    @using (Html.BeginForm("getStudentRecors", "Login"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4 class="text-center">Mark</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group form-inline col-md-12">
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Class_id, ViewBag.list as SelectList, "====Select====", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Class_id, "", new { @class = "text-danger" })
+                </div>
+                <div><input type="submit" id="GetRecords" class="btn btn-default" value="Find" /></div>
+            </div>
+        </div>
+
+    }
+    <div>
+        <table id="tabledata" class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mark Status</th>
+                </tr>
+            </thead>
+
+            @if (ViewBag.listone != null)
+            {
+                foreach (var item in ViewBag.listone)
+                {
+
+
+                    <tbody>
+                        <tr>
+                            <td>@item.stu_id</td>
+                            <td>@item.applicant_name</td>
+
+                            <td class='cbCol'><input type='checkbox' class='cbCompaign' /></td>
+                        </tr>
+                    </tbody>
+
+                }
+            }
+
+
+        </table>
+        <div class="col-md-12">
+            <input type="button" value="MarkAttendance" id="markAttendance" />
+        </div>
+
+        <table id="mytabledata" style="visibility:hidden;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <table id="mytabledataone" style="visibility:hidden;">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#markAttendance").click(function () {
+            debugger;
+            var tblLength = $("#tabledata tbody tr").length;
+            for (var i = 0; i < tblLength; i++) {
+                var isRowChecked = $("#tabledata tbody tr:eq(" + i + ") td:eq(2)").find("input.cbCompaign").is(":checked") == true ? true : false;
+                if (isRowChecked == true) {
+                    var id = $("#tabledata tbody tr:eq(" + i + ") td:eq(0)").html();
+                    var name = $("#tabledata tbody tr:eq(" + i + ") td:eq(1)").html();
+                    $("#mytabledata tbody").append("<tr><td>" + id + "</td><td>" + name + "</td></tr>");
+                }
+                else {
+
+                    var id = $("#tabledata tbody tr:eq(" + i + ") td:eq(0)").html();
+                    var name = $("#tabledata tbody tr:eq(" + i + ") td:eq(1)").html();
+                    $("#mytabledataone tbody").append("<tr><td>" + id + "</td><td>" + name + "</td></tr>");;
+
+                }
+            }
+
+            var valdt = $("#mytabledata").tableToJSON();
+            var valdtone = $("#mytabledataone").tableToJSON();
+
+            var strdata = JSON.stringify(valdt)
+            var strdataone = JSON.stringify(valdtone)
+           
+            debugger;                    
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: '/Login/SaveAttendance',
+               data: { tableone: strdata, tabletwo: strdataone },
+                //data: { tableone: JSON.stringify(datavaluee) },
+                success: function (response) {
+                    debugger;
+                 
+                        alert("Successfully Marked");
+                        $("#CampaignTable tbody").empty();
+                        $('#assigncampaign').attr("disabled", true);
+                        window.location.href = "@Url.Action("Adminplate", "Login")";
+                 
+                 
+                },
+                error: function (xhr, status, error)
+                {
+                    alert(error)
+
+                }
+
+
+            });
+
+        });
+    });
+
+
+
+</script>
+}
+
+
+<script src="~/Scripts/jsontbl.js"></script>

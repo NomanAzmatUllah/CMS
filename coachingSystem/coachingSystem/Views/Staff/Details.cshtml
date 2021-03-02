@@ -1,0 +1,51 @@
+﻿@model coachingSystem.Models.tbl_staff
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbl_staff</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.staff_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staff_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staff_contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staff_contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staff_cnic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staff_cnic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.staff_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.staff_address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.staff_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,125 @@
+﻿@model coachingSystem.Models.Staf_salary
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Staff Salary Details</h2>
+
+
+
+<style>
+    .box {
+        width: 500px;
+        // border: 1px solid black;
+        position: relative;
+    }
+
+    .boxes {
+        width: 400px;
+        // border: 1px solid black;
+        position: relative;
+    }
+
+    .box1 {
+        width: 625px;
+        border: 1px solid black;
+    }
+
+    .weight {
+        font-weight: bold;
+        font-size: 30px;
+    }
+</style>
+
+
+<h4>Staf_salary</h4>
+<br />
+<br />
+<br />
+<input id="printdiv" type="submit" class="btn btn-block btn-default" value="Print" onclick="printContent('AdmissionForm')" />
+
+<div id="AdmissionForm" class="box">
+
+    <table class="table table-responsive">
+
+        <tr>
+            <td>
+                <img class="img-responsive" style="height:30%;margin-left: -27px; width: 100%;" src="~/images/FITNESS BAR RECEIPT_Slip.png" />
+            </td>
+        </tr>
+        <tr>
+            <td class="weight">
+
+                Date:
+                @Html.DisplayFor(model => model.CurrentDate)
+            </td>
+
+        </tr>
+        <tr>
+            <td class="weight">
+
+                Name:
+                @Html.DisplayFor(model => model.tbl_staff.staff_name)
+            </td>
+        </tr>
+        <tr>
+            <td class="weight">
+                <div style="margin-top: -23px;">
+                    Date:
+                    @System.DateTime.Now;
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="weight">
+
+                Amount:
+                @Html.DisplayFor(model => model.monthly_salary)
+            </td>
+        </tr>
+        <tr>
+            <td class="weight">
+
+                Paymemt For the Month of:
+                @Html.DisplayFor(model => model.currMonth)
+
+
+            </td>
+        </tr>
+        <tr>
+            <td class="weight">
+
+                Signature:____________
+            </td>
+
+        </tr>
+    </table>
+
+</div>
+<br />
+<br />
+
+
+
+
+
+
+<script>
+
+    function printContent(el) {
+        debugger;
+        var restorepage = document.body.innerHTML;
+        var printcontent = document.getElementById(el).innerHTML;
+        document.body.innerHTML = printcontent;
+        window.print();
+        document.body.innerHTML = restorepage;
+        var clicks = 0;
+        clicks += 1;
+        document.getElementById("clicks").innerHTML = clicks;
+
+    }
+
+</script>

@@ -1,0 +1,266 @@
+﻿@model coachingSystem.Models.maarkSheet
+@{
+    ViewBag.Title = "marksheetmarksheet";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+
+
+
+<html>
+<head>
+    <title>Add Marksheet</title>
+  
+    <style>
+
+        .hidden 
+        {
+        
+            display:none;
+        }
+
+        .block{
+            display:block;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <button id="print" onclick="printContent('marksheet');">Print</button>
+
+    @using (Html.BeginForm("marksheetmarksheet", "Login"))
+    {
+        @Html.AntiForgeryToken()
+        <div id="Userrecords">
+            <div class="form-horizontal">
+                <h4 class="text-center">Generate Marksheet</h4>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.DropDownList("classid", ViewBag.list as SelectList, "====Select====", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Class_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.DropDownList("Subject", ViewBag.lists as SelectList, "====Select====", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Class_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.DropDownList("StudentId", ViewBag.listss as SelectList, "====Select====", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Class_id, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="totalmarks" placeholder="TotalMarks" />
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="ObtainedMarks" placeholder="ObtainedMarks" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="button" value="Add" id="addintotabale" class="btn" />
+                        <input type="button" value="Save" id="SaveData" class=" btn" />
+                    </div>
+                </div>
+            </div>
+
+            <table class="table" id="tablestudent">
+                <thead>
+                    <tr>
+                        <th>StudentId</th>
+                        <th>Student</th>
+                        <th>Classid</th>
+                        <th>ClassName</th>
+                        <th>Subject</th>
+                        <th>TotalMarks</th>
+                        <th>ObtainedMarks</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    }
+
+    <div id="marksheet">
+        <div class="row">
+            <div class="form-row form-inline col-md-12">
+                <div class="col-md-4">
+                    <label class="col-md-4">Current Date:</label>
+                    <label class="col-md-4" id="date"></label>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">Roll No:</label>
+                    <label class="col-md-4" id="rollno"></label>
+                </div>
+                <div class="col-md-3">
+                    <label class="col-md-4">Name:</label>
+                    <label class="col-md-4" id="Name"></label>
+                </div>
+                <div class="col-md-2">
+                    <label class="col-md-4">Class:</label>
+                    <label class="col-md-4" id="class"></label>
+                </div>
+            </div>
+            <br />
+            <br />
+            <div class="form-row form-inline col-md-12 text-center d-flex justify-content-center">
+                <div class="col-md-4">
+                    <br />
+                    <br />
+                    <table id="stuentmarks" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Subject</th>
+                                <th>Total Marks</th>
+                                <th>Obtained Marks</th>
+                                <th>Percentage</th>
+                                <th>Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+    var studentid = '';
+    var classid = '' ;
+    var className = '' ;
+    var subject = '' ;
+    var Student = '' ;
+    var obtained  = '';
+    var totalmarks = '';
+    var totalmarkresult = '';
+    var obtainedmarksresult = '';
+    var totalmarkvalue = '';
+    var obtainedmarksvalue = ''
+
+
+    $(document).ready(function () {
+
+        $("#marksheet").addClass("hidden");
+        $("#print").addClass("hidden");
+
+
+        $("#addintotabale").click(function () {
+            studentid = $("#StudentId option:selected").val();
+            classid = $("#classid option:selected").val();
+            className = $("#classid option:selected").text();
+            subject = $("#Subject option:selected").text();
+            Student = $("#StudentId option:selected").text();
+            obtained = $("#ObtainedMarks").val();
+            totalmarks = $("#totalmarks").val();
+
+            $("#tablestudent tbody").append("<tr><td>" + studentid + "</td><td>" + Student + "</td><td>" + classid + "</td><td>" + className + "</td><td>" + subject + "</td><td>" + totalmarks + "</td><td>" + obtained + "</td></tr>");
+            $("#stuentmarks tbody").append("<tr><td>" + subject + "</td><td>" + totalmarks + "</td><td>" + obtained + "</td></tr>");
+        });
+    
+        $("#SaveData").click(function () {       
+            var tbody = $("#tablestudent tbody");
+            var date = new Date();
+
+            if (tbody.children().length == 0) {
+
+                alert("Please Add Fields");
+            }
+            else {
+
+                $("#date").text(date);
+                $("#rollno").text(studentid);
+                $("#Name").text(Student);
+                $("#class").text(className);          
+                var valdt = $("#tablestudent").tableToJSON();
+                var strdata = JSON.stringify(valdt);
+                $.ajax(
+               {
+                   type: 'POST',
+                   dataType: 'JSON',
+                   url: '/Login/GetRecords',
+                   data: { tablerecords: strdata },
+                   success:
+                       function (response)
+                       {
+                           var tblLength = $("#stuentmarks tbody tr").length;
+                           for (var i = 0; i < tblLength; i++) {
+                               totalmarkvalue = $("#stuentmarks tbody tr:eq(" + i + ") td:eq(1)").text();
+                               obtainedmarksvalue = $("#stuentmarks tbody tr:eq(" + i + ") td:eq(2)").text();
+                               
+                               totalmarkvalue = totalmarkvalue + totalmarkresult;
+                               obtainedmarksvalue = obtainedmarksvalue + obtainedmarksresult;
+                           }
+                           // do something with productId, product, Quantity
+                      
+                           var percentage = obtainedmarksvalue / totalmarkvalue * 100;
+                           var grade = '';
+                           if (percentage >= 80 && percentage <= 99)
+                           {
+                               grade = "A +";
+
+                           }
+
+                           else if (percentage >= 70 && percentage <= 79) {
+                               grade = "A";
+
+                           }
+                           else if (percentage >= 60 && percentage <= 69) {
+                               grade = "B";
+
+                           }
+                           else if (percentage >= 50 && percentage <= 59) {
+                               grade = "C";
+
+                           }
+                           else {
+
+
+                               grade = "D";
+                           }
+                           $("#stuentmarks tbody").append("<tr><td>" + ""+ "</td><td>" + ""+ "</td><td>" + ""  + "</td><td>" + percentage + "</td><td>" + grade + "</td></tr>");
+                           $("#marksheet").removeClass("hidden");
+                           $("#Userrecords").addClass("hidden");
+                           $("#print").removeClass("hidden");
+                       },
+                       
+                   error:
+                       function (response) {
+                           alert("Error: " + response);
+                       }
+               });
+            }
+
+        });
+    });
+
+
+
+    function printContent(el) {
+        var restorepage = $('body').html();
+        var printcontent = $('#' + el).clone();
+        $('body').empty().html(printcontent);
+        window.print();
+        $('body').html(restorepage);
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="~/Scripts/jsontbl.js"></script>

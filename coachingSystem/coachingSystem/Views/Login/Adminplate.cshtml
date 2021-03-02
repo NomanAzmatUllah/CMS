@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Adminplate";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+
+
+<style>
+    body {
+        //background:url('../../images/pexels-photo-669996.jpeg');
+        padding: 0;
+        margin: 0;
+        background-size: cover;
+        background-repeat: no-repeat;
+        font-family: 'Raleway', sans-serif;
+        background-attachment: fixed;
+        background-position: center center;
+        width: 100%;
+    }
+</style>
+
+
+
+<html>
+<head>
+
+</head>
+<body>
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+           
+                <button type="button"  onclick="location.href='@Url.Action("marksheetmarksheet", "Login")'" class=" btn btn-info btn-default">Generate Marksheet</button>
+                <button  type="button"  onclick="location.href='@Url.Action("getStudentRecors", "Login")'"  class="btn btn-info btn-default">Mark Attendance</button>
+            </div>
+    </div>
+
+
+</body>
+</html>
+

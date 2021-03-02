@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <title>TSC</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+    <style>
+        .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+            background: rgb(0, 153, 204);
+        }
+        .navbar-inverse {
+            background: rgb(0, 153, 204);
+        
+        }
+       .footer {
+  left: 0;
+   bottom: 0;
+   width:100%;
+}
+.footer a {
+  color: white;
+  font-size: 20px;
+  padding: 10px;
+  border-right: 1px solid #70726F;
+  transition: all .5s ease;
+}
+.footer a:first-child {
+  border-left: 1px solid #70726F;
+}
+.footer a:hover {
+  color: white;
+}
+.list-inline>li{
+    font-size:36px;
+}
+
+     </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("The Student Collegiate", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Free-Structure", "FeeStructure", "Home")</li>
+                    <li>@Html.ActionLink("Services", "Services", "Home")</li>
+                    <li>@Html.ActionLink("Gallery", "Gallery", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li style="float:right">@Html.ActionLink("Admin Login", "Login", "Login")</li> 
+                            
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <br />
+        @RenderBody()
+        <hr />
+        <hr />
+    <br />
+    <!-- Footer -->
+    <footer class="page-footer font-small teal pt-4">
+
+        <!-- Footer Text -->
+        <div class="container-fluid text-center text-md-left">
+
+            <!-- Grid row -->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-6 mt-md-0 mt-3">
+
+                    <!-- Content -->
+                    <h3 class="text-uppercase font-weight-bold">For Details</h3>
+                    
+                        <h5> For Call:+92-341-8713963</h5>
+                        <h5> For What'sApp:+92-331-2186407</h5>
+                   
+
+                </div>
+                <!-- Grid column -->
+
+                <!-- Grid column -->
+                <div class="col-md-6 mb-md-0 mb-3">
+
+                    <!-- Content -->
+                    <h5 class="text-uppercase font-weight-bold"></h5>
+                    <p><ul class="list-unstyled list-inline text-center">
+    <li class="list-inline-item" >
+        <a class="btn-floating btn-fb mx-1" target="_blank" href="https://www.facebook.com/tscnorthkarachi/">
+            <i class="fa fa-facebook"> </i>
+        </a>
+    </li>
+    <li class="list-inline-item">
+        <a class="btn-floating btn-tw mx-1" target="_blank" href="https://www.tsc.edu.pk@gmail.com">
+            <i class="fa fa-envelope"> </i>
+        </a>
+    </li>
+    <li class="list-inline-item">
+        <a class="btn-floating btn-gplus mx-1" target="_blank" href="https://m.youtube.com/channel/UCmKvUyG584wbrbLIccVJwLw">
+            <i class="fa fa-youtube"> </i>
+        </a>
+    </li>
+    <li class="list-inline-item">
+        <a class="btn-floating btn-li mx-1" target="_blank" href="thestudentscollegiate">
+            <i class="fa fa-instagram"> </i>
+        </a>
+    </li>
+</ul>
+<!-- Social buttons -->
+
+                    </p>
+
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row -->
+
+        </div>
+        <!-- Footer Text -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">
+            © 2020 Copyright:
+            <a href="https://mdbootstrap.com/">Times Partner</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+
+   
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html> 

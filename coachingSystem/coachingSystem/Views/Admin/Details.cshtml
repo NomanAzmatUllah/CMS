@@ -1,0 +1,75 @@
+﻿@model coachingSystem.Models.tbl_faculty_details
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Details</h2>
+
+
+<table class="table table-responsive table-striped">
+
+    <tr>
+        <th>Name</th>
+        <th>
+            @Html.DisplayFor(model => model.facullty_name)
+    </th>
+</tr>
+
+<tr>
+
+
+    <th>
+        Father-Name
+    </th>
+    <th> @Html.DisplayFor(model => model.father_name)</th>
+</tr>
+
+<tr>
+    <th>CNIC</th>
+    <th>@Html.DisplayFor(model => model.cnic)</th>
+</tr>
+<tr>
+    <th>Date-Of-Birth</th>
+    <th>@Html.DisplayFor(model => model.date_of_birth)</th>
+</tr>
+<tr>
+    <th>Status</th>
+    <td>@Html.DisplayFor(model => model.marital_status)</td>
+</tr>
+<tr>
+    <th>Contact</th>
+    <th>@Html.DisplayFor(model => model.contact_no)</th>
+</tr>
+<tr>
+    <th>Email</th>
+    <th @Html.DisplayFor(model => model.email)></th>
+    </tr>
+    
+    <tr>
+    <th>Address</th>
+    <th>@Html.DisplayFor(model => model.addresss)</th>
+</tr>
+<tr>
+    <th>Qualification</th>
+    <th>@Html.DisplayFor(model => model.qualification)</th>
+</tr>
+<tr>
+    <th>Institution</th>
+    <th>@Html.DisplayFor(model => model.instituion)</th>
+</tr>
+
+<tr>
+    <th>Description</th>
+    <th>@Html.DisplayFor(model => model.descriptionn)</th>
+</tr>
+<tr>
+    <th>Skills</th>
+    <th>@Html.DisplayFor(model => model.skill_activities)</th>
+</tr>
+<tr>
+    <th>Image</th>
+    <th><img src="@Url.Content(Model.faculty_image)"  height="130px;"/></th>
+</tr>
+</table>

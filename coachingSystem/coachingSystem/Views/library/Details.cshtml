@@ -1,0 +1,43 @@
+﻿@model coachingSystem.Models.library
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>library</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_category)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_category)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.book_status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.book_status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.book_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

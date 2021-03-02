@@ -1,0 +1,121 @@
+﻿@model IEnumerable<coachingSystem.Models.tbl_faculty_details>
+
+
+@{
+
+    ViewBag.Title = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/web/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/web/css/style.css" rel="stylesheet" />
+
+
+    <style>
+        .augue{
+
+             background: rgb(0, 153, 204);
+       
+        }
+        .images{
+     width: 100%;
+    height:auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    margin-top: 7em;
+        }
+        .main{
+
+            
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: relative;
+    margin-left:97px;
+        }
+
+        .imagediv{
+           
+             display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+    //white-space: break-spaces;
+        }
+        .faculty-image{
+              
+     height: 300px;
+    border: 5px solid #0099cc;
+    border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+
+
+
+
+    <div class="container">
+        <img src="~/images/e7071db5-061a-4493-a97f-b2e54253ba72.jpg" class="img-responsive images" />
+    </div>
+    <hr />
+    <marquee><h2>Admission Open For IX/X /XI and XII</h2></marquee>
+    
+    <section class="wedo py-5" id="about">
+        <div class="container py-lg-5">
+            <div class="augue">
+                <div class="row about-info-augue">
+                    <div class="col-lg-8 about-aug about-aug1">
+                        <h4>The   <span>Student </span> Collegiate </h4>
+                        <p>
+                            Our Institute produces students of high caliber, capable to meet the growing demands of the 21st
+                            century. An outstanding feature of the Institute is that while maintaining traditional values of excellence
+                            in teaching, it challenges conventional practices and creates new ways of Quality education and
+                            delivering courses on most modern lines </p>
+                    </div>
+                    <div class="col-lg-4 about-aug about-aug2">
+                        <ul class="featured-icons">
+                            <li><span class="fa fa-cog mb-5"></span></li>
+                            <li><span class="fa fa-laptop mb-5"></span></li>
+                            <li><span class="fa fa-lock mb-5"></span></li>
+                            <li><span class="fa fa-cloud mb-5"></span></li>
+                            <li><span class="fa fa-volume-up"></span></li>
+                            <li><span class="fa fa-clock-o"></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr />
+
+ 
+    <h2 style="text-align:center;">Our Faculty</h2>
+    <hr />
+
+    <div class="imagediv">
+
+        @{
+            foreach (var item in Model)
+            {
+
+                <div>
+                    <div style="height:400px;">
+                           <img class="card-img-top faculty-image" src="@Url.Content(item.faculty_image)" alt="Card image cap">
+                           <h3 class="text-center">@item.facullty_name</h3> 
+                        <h3 class="text-center">@item.qualification</h3> 
+                    </div>
+                </div>
+
+            }
+        }
+    
+    </div>
+    
+    <br />
+
+</body>
+</html>

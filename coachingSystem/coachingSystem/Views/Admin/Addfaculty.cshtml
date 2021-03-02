@@ -1,0 +1,117 @@
+﻿@model coachingSystem.Models.tbl_faculty_details
+
+@{
+    ViewBag.Title = "Addfaculty";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<style>
+
+    .form-control{
+
+        margin-top:1%;
+    }
+
+</style>
+@using (Html.BeginForm("Addfaculty", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4 style="text-align:center;">Add Faculty </h4>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+       
+         <div class="row col-lg-12">
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.facullty_name, new { htmlAttributes = new { @class = "form-control",placeholder="Name" } })
+                @Html.ValidationMessageFor(model => model.facullty_name, "", new { @class = "text-danger" })
+                </div>
+               
+             <div class="col-lg-6">
+                    @Html.EditorFor(model => model.father_name, new { htmlAttributes = new { @class = "form-control", placeholder = "Father-Name" } })
+                    @Html.ValidationMessageFor(model => model.father_name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+        <div class="row col-lg-12">
+                    <div class="col-lg-6">
+                @Html.EditorFor(model => model.cnic, new { htmlAttributes = new { @class = "form-control",placeholder="CNIC" } })
+                @Html.ValidationMessageFor(model => model.cnic, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.date_of_birth, new { htmlAttributes = new { @class = "form-control",placeholder="Dae of Birth" } })
+                @Html.ValidationMessageFor(model => model.date_of_birth, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row col-lg-12">
+         
+               <div class="col-lg-6">
+                @Html.EditorFor(model => model.marital_status, new { htmlAttributes = new { @class = "form-control",placeholder = "Status" } })
+                @Html.ValidationMessageFor(model => model.marital_status, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.contact_no, new { htmlAttributes = new { @class = "form-control", placeholder = "Contact" } })
+                @Html.ValidationMessageFor(model => model.contact_no, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row col-lg-12">
+
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.addresss, new { htmlAttributes = new { @class = "form-control",placeholder = "Address" } })
+                @Html.ValidationMessageFor(model => model.addresss, "", new { @class = "text-danger" })
+            </div>
+        </div> 
+
+        <div class=" row col-lg-12">
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.qualification, new { htmlAttributes = new { @class = "form-control" , placeholder = "Qualification" } })
+                @Html.ValidationMessageFor(model => model.qualification, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.instituion, new { htmlAttributes = new { @class = "form-control", placeholder = "School/Institute" } })
+                @Html.ValidationMessageFor(model => model.instituion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="row col-lg-12">
+             <div class="col-lg-6">
+                @Html.EditorFor(model => model.experience, new { htmlAttributes = new { @class = "form-control", placeholder = "Experience" } })
+                @Html.ValidationMessageFor(model => model.experience, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-lg-6">
+                @Html.EditorFor(model => model.descriptionn, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })
+                @Html.ValidationMessageFor(model => model.descriptionn, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="row col-lg-12">
+             <div class="col-lg-6">
+                @Html.EditorFor(model => model.skill_activities, new { htmlAttributes = new { @class = "form-control", placeholder = "Skills" } })
+                @Html.ValidationMessageFor(model => model.skill_activities, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-lg-6">
+                <input type="file" id="imgfile" name="imgfile" class="btn btn-default btn-info" />
+                @Html.ValidationMessageFor(model => model.faculty_image, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+       
+            <div class="col-lg-12">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+    </div>
+}
+

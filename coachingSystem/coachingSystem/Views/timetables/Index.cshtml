@@ -1,0 +1,55 @@
+﻿@model IEnumerable<coachingSystem.Models.timetable>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            Date Time
+        </th>
+        <th>
+            Days
+        </th>
+        <th>
+            Class Name
+        </th>
+        <th>
+            Faculty
+        </th>
+        <th>
+            Subject
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dayss)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_class.class_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_faculty_details.facullty_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_subject.sub_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.timetable_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.timetable_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.timetable_id })
+        </td>
+    </tr>
+}
+
+</table>

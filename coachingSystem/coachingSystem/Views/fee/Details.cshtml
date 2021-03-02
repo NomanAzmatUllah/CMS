@@ -1,0 +1,31 @@
+﻿@model coachingSystem.Models.Fee_structure
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Fee_structure</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fee_structure_Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fee_structure_Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tbl_class.class_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tbl_class.class_name)
+        </dd>
+
+    </dl>
+</div>

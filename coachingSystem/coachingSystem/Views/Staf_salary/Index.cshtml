@@ -1,0 +1,60 @@
+﻿@model IEnumerable<coachingSystem.Models.Staf_salary>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2>Staff Salary</h2>
+
+<table class="table table-responsive">
+    <tr>
+        <th>
+            Date        </th>
+        <th>
+           Month
+        </th>
+        <th>
+           Salary
+        </th>
+        <th>
+            Bonus
+        </th>
+        <th>
+           Amount
+        </th>
+        <th>
+            Staff  Name
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.currMonth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monthly_salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bonus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.extra_Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tbl_staff.staff_name)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Details", "Details", new { id=item.Us_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Us_id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,117 @@
+﻿@model coachingSystem.Models.tbl_admin
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Estate Register Form Responsive Widget Template :: w3layouts</title>
+    <!-- Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Estate Register Form a Responsive Web Template, Bootstrap Web Templates, Flat Web Templates, Android Compatible Web Template, Smartphone Compatible Web Template, Free Webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
+    <!-- //Meta-Tags -->
+    <link href="~/estate_register_form-web_Free26-03-2018_769173932/web/css/style.css" rel="stylesheet" />
+    <link href="~/estate_register_form-web_Free26-03-2018_769173932/web/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,500,600,700,800,900" rel="stylesheet">
+
+
+
+    <style>
+        .dropdowns{
+
+            border: 1px solid white;
+    height: 31px;
+    width: 343px;
+    border-radius: 7px;
+    position: relative;
+    text-align:center;
+    font-weight:bold;
+    font-family:sans-serif;
+        }
+    </style>
+</head>
+
+
+
+
+@{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+    {
+        Text = "Admin",
+        Value = "Admin"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Receptionaist",
+        Value = "Receptionaist"
+    });
+
+
+    listItems.Add(new SelectListItem
+    {
+        Text = "Head",
+        Value = "Head"
+    });
+    listItems.Add(new SelectListItem
+    {
+        Text = "Manager",
+        Value = "Manager"
+    });
+
+
+
+}
+
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="signupform">
+            <div class="container">
+                <!-- main content -->
+                <div class="agile_info">
+                    <div class="w3_info">
+                        <h2>Register</h2>
+                            <div class="input-group">
+                                <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.ad_name, new { HtmlAttribute = new { @class = "form-control", placeholder = "Email", Required = "required" } })
+                                @Html.ValidationMessageFor(model => model.ad_name, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="input-group">
+                                <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.ad_Email, new { HtmlAttribute = new { @class = "form-control", placeholder = "Email", Required = "required" } })
+                                @Html.ValidationMessageFor(model => model.ad_Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="input-group">
+                                <span><i class="fa fa-lock" aria-hidden="true"></i></span>
+                                @Html.EditorFor(model => model.ad_password, new { HtmlAttribute = new { @class = "form-control", placeholder = "Password", Required = "required" } })
+                                @Html.ValidationMessageFor(model => model.ad_password, "", new { @class = "text-danger" })
+                            </div>
+
+                        <div class="form-horizontal dropdowns">
+                            @Html.DropDownListFor(model => model.ad_designation, listItems, "====Select====", new { @class = "dropdowns form-control" })
+                            @Html.ValidationMessageFor(model => model.ad_designation, "", new { @class = "text-danger" })
+                        </div>
+
+                            <button class="btn btn-danger btn-block" type="submit">Signup</button>
+                            <button class="btn btn-danger btn-block" onclick="location.href='@Url.Action("Login", "Login")';return false;">Login</button>
+
+
+
+                    </div>
+                </div>
+                <!-- //main content -->
+            </div>
+        </div>
+    }
+</body>
+</html>

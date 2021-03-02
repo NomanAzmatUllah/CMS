@@ -1,0 +1,30 @@
+﻿@model IEnumerable<coachingSystem.Models.tbl_class>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminpanel.cshtml";
+}
+
+<h2 style="text-align:center;">Class-Details</h2>
+
+<table class="table table-responsive table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.class_name)
+        </th>
+        <th>Action</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.class_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.class_id }) |
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.class_id })*@
+        </td>
+    </tr>
+}
+
+</table>
